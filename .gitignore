@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+env/
+.env
+
+# Data files
+data/
+profiles/
+pages/
+sample/
+*.parquet
+*.json
+*.log
+
+# Text data files
+player_profile_links.txt
+player_profile_tournament.txt
+player_profile_tournament_expanded.txt
+extra_players.txt

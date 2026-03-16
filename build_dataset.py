@@ -229,8 +229,8 @@ def main():
     parser.add_argument("--workers", type=int, default=os.cpu_count())
     args = parser.parse_args()
 
-    if not args.force and not _needs_rebuild(args.output_dir, args.profiles_dir):
-        print("Data files are up to date. Use --force to rebuild.")
+    if not args.force and args.output_dir.exists():
+        print(f"{args.output_dir} already exists. Use --force to rebuild.")
         return
 
     build(args.profiles_dir, args.output_dir, args.workers)

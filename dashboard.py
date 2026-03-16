@@ -62,7 +62,7 @@ selected_cats = st.sidebar.multiselect(
 st.session_state["event_categories"] = selected_cats if selected_cats else ALL_CATEGORIES
 
 # Unaffiliated
-include_unaffiliated = st.sidebar.checkbox("Include unaffiliated players", value=True)
+include_unaffiliated = st.sidebar.checkbox("Include unaffiliated players", value=False)
 st.session_state["include_unaffiliated"] = include_unaffiliated
 
 # ---------------------------------------------------------------------------

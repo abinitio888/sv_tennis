@@ -2,8 +2,6 @@
 Tennis Club Performance Dashboard — entry point.
 Run with: streamlit run dashboard.py
 """
-import subprocess
-import sys
 from pathlib import Path
 
 import streamlit as st
@@ -16,20 +14,11 @@ PARQUET_FILES = [
 ]
 
 # ---------------------------------------------------------------------------
-# Auto-build data if missing
+# Check data exists
 # ---------------------------------------------------------------------------
 if not all(p.exists() for p in PARQUET_FILES):
-    st.info("Building dataset for the first time — this may take a minute...")
-    result = subprocess.run(
-        [sys.executable, str(Path(__file__).parent / "build_dataset.py")],
-        capture_output=True,
-        text=True,
-    )
-    if result.returncode != 0:
-        st.error(f"build_dataset.py failed:\n{result.stderr}")
-        st.stop()
-    st.success("Dataset built successfully. Reloading...")
-    st.rerun()
+    st.error("Data files not found in data/. Run `python build_dataset.py` first.")
+    st.stop()
 
 # ---------------------------------------------------------------------------
 # Page config

@@ -2,7 +2,7 @@
 Parses all sample/*.json player profiles → outputs parquet files to data/.
 
 Usage:
-    python build_dataset.py [--profiles-dir ./sample] [--output-dir ./data]
+    python build_dataset.py [--profiles-dir ./profiles] [--output-dir ./data]
                             [--force] [--workers N]
 """
 import argparse
@@ -223,7 +223,7 @@ def build(profiles_dir: Path, output_dir: Path, workers: int):
 
 def main():
     parser = argparse.ArgumentParser(description="Build tennis dashboard datasets")
-    parser.add_argument("--profiles-dir", default="./sample", type=Path)
+    parser.add_argument("--profiles-dir", default="./profiles", type=Path)
     parser.add_argument("--output-dir", default="./data", type=Path)
     parser.add_argument("--force", action="store_true")
     parser.add_argument("--workers", type=int, default=os.cpu_count())

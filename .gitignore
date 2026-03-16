@@ -8,13 +8,16 @@ env/
 .env
 
 # Data files
-data/
 profiles/
 pages/
 sample/
 *.parquet
 *.json
 *.log
+
+# Allow processed data files
+!data/
+!data/*.parquet
 
 # Text data files
 player_profile_links.txt
